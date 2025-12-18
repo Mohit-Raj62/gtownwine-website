@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MessageCircle } from 'lucide-react';
+import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
 
 const FloatingContactButtons = () => {
   const phoneNumber = "916262362558";
@@ -13,7 +13,7 @@ const FloatingContactButtons = () => {
         className="floating-btn call-btn"
         aria-label="Call Now"
       >
-        <Phone size={24} fill="white" />
+        <FaPhoneAlt size={24} color="white" />
       </a>
 
       {/* WhatsApp Button - Bottom Right */}
@@ -24,7 +24,7 @@ const FloatingContactButtons = () => {
         className="floating-btn whatsapp-btn"
         aria-label="Chat on WhatsApp"
       >
-        <MessageCircle size={28} color="white" />
+        <FaWhatsapp size={32} color="white" />
       </a>
 
       <style>{`
@@ -41,6 +41,7 @@ const FloatingContactButtons = () => {
           z-index: 9999;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
           color: white;
+          text-decoration: none;
         }
         .floating-btn:hover {
           transform: scale(1.1);
@@ -48,13 +49,28 @@ const FloatingContactButtons = () => {
         }
         .call-btn {
           left: 30px;
-          background-color: var(--color-primary); /* Uses theme primary color or fallback to blue */
+          background: linear-gradient(135deg, #1cc88a 0%, #13855c 100%);
           border: 2px solid white;
+          animation: pulse-green 2s infinite;
         }
         .whatsapp-btn {
           right: 30px;
           background-color: #25D366;
           border: 2px solid white;
+          animation: pulse-green 2s infinite;
+          animation-delay: 1s;
+        }
+
+        @keyframes pulse-green {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
         }
 
         /* Responsive adjustments for mobile so they don't block content too much */
