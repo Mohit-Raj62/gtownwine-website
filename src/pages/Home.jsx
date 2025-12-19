@@ -67,7 +67,6 @@ const Home = () => {
           }}>
             Exclusive collection & offering prices you can’t resist! Experience authenticity and safety in every bottle.
           </p>
-          
           <Link to="#" className="btn-primary" style={{ color: 'gold', borderColor: 'green', textAlign: 'center', fontSize: '1.5rem', fontWeight: 'bold' }}>+91 62623 62558</Link>
           <br />
           <br />
@@ -75,7 +74,6 @@ const Home = () => {
             <Link to="/wines" className="btn-primary">Browse Collection</Link>
             <Link to="/online-order" className="btn-outline" style={{ color: 'white', borderColor: 'white' }}>24/7 Free Home Delivery</Link>
           </div>
-          
         </div>
       </section>
 
