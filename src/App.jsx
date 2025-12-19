@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Analytics from './components/Analytics';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -19,6 +20,7 @@ const Placeholder = ({ title }) => (
 function App() {
   return (
     <Router>
+      <Analytics />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />

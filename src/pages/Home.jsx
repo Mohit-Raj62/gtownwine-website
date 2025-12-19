@@ -24,6 +24,49 @@ const Home = () => {
         <meta property="twitter:title" content="G-Town Wines - NCR's 1st Women-Friendly Liquor Store" />
         <meta property="twitter:description" content="Experience authenticity and safety. Shop premium liquor brands at wholesale prices at G-Town Wines." />
         <meta property="twitter:image" content="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" />
+        
+        <link rel="canonical" href="https://gtownwines.com/" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LiquorStore",
+            "name": "G-Town Wines",
+            "image": "https://gtownwines.com/gtownlogo.png",
+            "@id": "https://gtownwines.com",
+            "url": "https://gtownwines.com",
+            "telephone": "+916262362558",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Near A Block, adjacent to Bristol Hotel, Sector 28, DLF Phase 1",
+              "addressLocality": "Gurugram",
+              "addressRegion": "HR",
+              "postalCode": "122022",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "28.4798", 
+              "longitude": "77.0906"
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "10:00",
+              "closes": "23:59"
+            },
+            "sameAs": [
+              "https://www.instagram.com/gtownwines/"
+            ]
+          })}
+        </script>
       </Helmet>
       {/* Hero Section */}
       <section className="hero" style={{
