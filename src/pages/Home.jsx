@@ -4,6 +4,22 @@ import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Star, ShieldCheck, Heart } from 'lucide-react';
 
 const Home = () => {
+  const [currentBgIndex, setCurrentBgIndex] = React.useState(0);
+  
+  const heroImages = [
+    "https://images.unsplash.com/photo-1597075687490-8f673c6c17f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    "https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    "https://images.unsplash.com/photo-1560512823-8db03e1b0949?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    "https://images.unsplash.com/photo-1556038038-16478950c406?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+  ];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBgIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -13,27 +29,27 @@ const Home = () => {
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://gtownwines.com/" />
+        <meta property="og:url" content="https://gtownwinel1.com/" />
         <meta property="og:title" content="G-Town Wines - NCR's 1st Women-Friendly Liquor Store" />
         <meta property="og:description" content="Experience authenticity and safety. Shop premium liquor brands at wholesale prices at G-Town Wines." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://gtownwines.com/" />
+        <meta property="twitter:url" content="https://gtownwinel1.com/" />
         <meta property="twitter:title" content="G-Town Wines - NCR's 1st Women-Friendly Liquor Store" />
         <meta property="twitter:description" content="Experience authenticity and safety. Shop premium liquor brands at wholesale prices at G-Town Wines." />
         <meta property="twitter:image" content="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" />
         
-        <link rel="canonical" href="https://gtownwines.com/" />
+        <link rel="canonical" href="https://gtownwinel1.com/" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LiquorStore",
             "name": "G-Town Wines",
-            "image": "https://gtownwines.com/gtownlogo.png",
-            "@id": "https://gtownwines.com",
-            "url": "https://gtownwines.com",
+            "image": "https://gtownwinel1.com/gtownlogo.png",
+            "@id": "https://gtownwinel1.com",
+            "url": "https://gtownwinel1.com",
             "telephone": "+916262362558",
             "address": {
               "@type": "PostalAddress",
@@ -70,7 +86,8 @@ const Home = () => {
       </Helmet>
       {/* Hero Section */}
       <section className="hero" style={{
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("${heroImages[currentBgIndex]}")`,
+        transition: 'background-image 1s ease-in-out',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '90vh',
@@ -110,11 +127,8 @@ const Home = () => {
           }}>
             Exclusive collection & offering prices you can’t resist! Experience authenticity and safety in every bottle.
           </p>
-          <Link to="#" className="btn-primary" style={{ color: 'gold', borderColor: 'green', textAlign: 'center', fontSize: '1.5rem', fontWeight: 'bold' }}>+91 62623 62558</Link>
-          <br />
-          <br />
           <div className="flex-center" style={{ gap: '20px', flexWrap: 'wrap' }}>
-            <Link to="/wines" className="btn-primary">Browse Collection</Link>
+            <a href="tel:+916262362558" className="btn-primary">+91 62623 62558</a>
             <Link to="/online-order" className="btn-outline" style={{ color: 'white', borderColor: 'white' }}>24/7 Free Home Delivery</Link>
           </div>
         </div>
@@ -122,7 +136,7 @@ const Home = () => {
 
       {/* About Us Section */}
       <section className="section-padding" style={{ 
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url("https://images.unsplash.com/photo-1584225064785-c62a8b43d148?auto=format&fit=crop&w=1950&q=80")',
+        backgroundImage: 'linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url("https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=1950&q=80")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
@@ -167,7 +181,7 @@ const Home = () => {
 
       {/* Premium Brands Section */}
       <section className="section-padding" style={{ 
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url("https://images.unsplash.com/photo-1559563362-c667ba5f5480?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
+        backgroundImage: 'linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url("https://images.unsplash.com/photo-1556038038-16478950c406?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
@@ -181,19 +195,39 @@ const Home = () => {
           <div className="marquee-container">
             <div className="marquee-track">
               {[
-                'Chivas Regal', 'Johnnie Walker', 'Jack Daniel\'s', 'Moët & Chandon', 'Grey Goose', 'Glenfiddich', 'Absolut', 'Bombay Sapphire',
-                'Chivas Regal', 'Johnnie Walker', 'Jack Daniel\'s', 'Moët & Chandon', 'Grey Goose', 'Glenfiddich', 'Absolut', 'Bombay Sapphire'
+                { name: 'Red Label', image: 'https://images.unsplash.com/photo-1527281400683-1aabc8c4d794?auto=format&fit=crop&w=300&q=80', type: 'Whisky' },
+                { name: 'Old Monk', image: 'https://images.unsplash.com/photo-1629241512411-9a7064a9749d?auto=format&fit=crop&w=300&q=80', type: 'Rum' },
+                { name: 'Kingfisher', image: 'https://images.unsplash.com/photo-1615332579037-3c44b3660b53?auto=format&fit=crop&w=300&q=80', type: 'Beer' },
+                { name: 'Jack Daniels', image: 'https://images.unsplash.com/photo-1592317079207-68b9287c8d9e?auto=format&fit=crop&w=300&q=80', type: 'Whisky' },
+                { name: 'Absolut', image: 'https://images.unsplash.com/photo-1608353887640-c8f2b7405e6c?auto=format&fit=crop&w=300&q=80', type: 'Vodka' },
+                { name: 'Chivas Regal', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=300&q=80', type: 'Whisky' },
+                { name: 'Corona', image: 'https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=300&q=80', type: 'Beer' },
+                { name: 'Glenfiddich', image: 'https://images.unsplash.com/photo-1527281400683-1aabc8c4d794?auto=format&fit=crop&w=300&q=80', type: 'Whisky' },
+                { name: 'Red Label', image: 'https://images.unsplash.com/photo-1527281400683-1aabc8c4d794?auto=format&fit=crop&w=300&q=80', type: 'Whisky' },
+                { name: 'Old Monk', image: 'https://images.unsplash.com/photo-1629241512411-9a7064a9749d?auto=format&fit=crop&w=300&q=80', type: 'Rum' },
+                { name: 'Kingfisher', image: 'https://images.unsplash.com/photo-1615332579037-3c44b3660b53?auto=format&fit=crop&w=300&q=80', type: 'Beer' },
+                { name: 'Jack Daniels', image: 'https://images.unsplash.com/photo-1592317079207-68b9287c8d9e?auto=format&fit=crop&w=300&q=80', type: 'Whisky' }
               ].map((brand, index) => (
-                <div key={index} className="brand-card-marquee">
+                <div key={index} className="brand-card-marquee" style={{ flexDirection: 'column', padding: '20px', minWidth: '200px' }}>
+                  <img 
+                    src={brand.image} 
+                    alt={brand.name} 
+                    style={{ 
+                      height: '150px', 
+                      width: 'auto', 
+                      objectFit: 'contain', 
+                      marginBottom: '10px',
+                      filter: 'drop-shadow(0 5px 15px rgba(0,0,0,0.5))'
+                    }} 
+                  />
                   <h3 style={{ 
                     margin: 0, 
-                    fontSize: '1.4rem', 
+                    fontSize: '1.2rem', 
                     color: 'white', 
                     fontFamily: 'var(--font-heading)',
-                    fontStyle: 'italic',
                     whiteSpace: 'nowrap'
                   }}>
-                    {brand}
+                    {brand.name}
                   </h3>
                 </div>
               ))}
@@ -237,7 +271,7 @@ const Home = () => {
 
       {/* Online Orders Section */}
       <section className="section-padding" style={{ 
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url("https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
+        backgroundImage: 'linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url("https://images.unsplash.com/photo-1598155523122-38423bb4d693?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
@@ -247,7 +281,7 @@ const Home = () => {
           <div className="online-order-grid" style={{ display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap' }}>
             <div style={{ flex: 1, minWidth: '300px' }}>
               <img 
-                src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+                src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
                 alt="Online Order" 
                 style={{ width: '100%', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)' }}
               />
@@ -268,7 +302,7 @@ const Home = () => {
 
       {/* Testimonials Section */}
       <section className="section-padding" style={{ 
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
+        backgroundImage: 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("https://images.unsplash.com/photo-1530103862676-de3c9da59af7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
@@ -400,7 +434,7 @@ const Home = () => {
 
       {/* Features Grid */}
       <section className="section-padding" style={{ 
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url("https://images.unsplash.com/photo-1597554559828-569658db4d88?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
+        backgroundImage: 'linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url("https://images.unsplash.com/photo-1560512823-8db03e1b0949?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
